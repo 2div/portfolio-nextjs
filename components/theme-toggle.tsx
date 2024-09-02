@@ -1,4 +1,6 @@
-import { useTheme } from "next-themes";
+'use client'
+
+import { useTheme } from 'next-themes'
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
@@ -12,7 +14,7 @@ export default function ThemeToggle() {
         setMounted(true)
     },[])
 
-    if (mounted) {
+    if (!mounted) {
         return null
     }
 
