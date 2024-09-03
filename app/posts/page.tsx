@@ -1,4 +1,5 @@
+import { notFound } from "next/navigation"
 
 export default function PostPage() {
-    return <div>PostPage</div>
+    return notFound()
 }

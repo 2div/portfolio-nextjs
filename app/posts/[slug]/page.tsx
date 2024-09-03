@@ -5,6 +5,9 @@ import Link from "next/link"
 import { ArrowLeftIcon } from "@radix-ui/react-icons"
 import Image from "next/image"
 import MDXContent from '@/components/mdx-content'
+import { MDXRemote } from "next-mdx-remote/rsc"
+import { formatDate } from "@/lib/utils"
+//import NewsletterForm from "@/components/newletter-form"
 
 export default async function Post({params} : {params:{slug:string}} ) {
     const {slug} = params
@@ -42,16 +45,15 @@ export default async function Post({params} : {params:{slug:string}} ) {
 
                 <header>
                     <h1>{title}</h1>
-                    <p>{author} / {formatRevalidate(publishedAt ?? '')} </p>
+                    <p>{author} / {formatDate(publishedAt ?? '')} </p>
                 </header>
 
-                <main>
-                    <MDXContent source={content}
+                <main className="prose dark:prose-invert mt-16">
+                    <MDXContent source={content} />
                 </main>
 
-                <footer>
-                    <NewsletterForm />
-                </footer>
+                
+               
             </div>
         </section>
     )
